@@ -1,16 +1,16 @@
-﻿namespace graphqlDemo.GQLTypes
+﻿using BusinessObjects.BusinessObjects.TestObject;
+
+namespace graphqlDemo.GQLTypes
 {
     public class QueryType
     {
-        public WeatherForecast GetWeatherForecast() { 
-            WeatherForecast _weather = new WeatherForecast();
-            _weather.Date = DateTime.Now;
-            _weather.TemperatureC = 10;
-            _weather.Summary = "cold";
+        public TestObject testmethod() {
+            TestObject _test = new TestObject();
+            _test.index = 0;
+            _test.description = "test";
+            _test.name = "testClass";
 
-
-
-            return _weather;
+            return _test;
         }
 
     }
