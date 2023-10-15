@@ -1,3 +1,5 @@
+using graphqlDemo.GQLTypes;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Register GraphQL server
+builder.Services.AddGraphQLServer().AddQueryType<QueryType>();
 
 var app = builder.Build();
 
@@ -22,5 +26,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+//Add GraphQL endpoint
+app.MapGraphQL(); //default end point("/graphql")
 
 app.Run();
